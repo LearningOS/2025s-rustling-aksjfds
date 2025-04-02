@@ -5,10 +5,13 @@
 // Execute `rustlings hint enums3` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
 
 enum Message {
     // TODO: implement the message variant types based on their usage below
+    Quit,
+    Echo(String),
+    Move(Point),
+    ChangeColor(u8, u8, u8),
 }
 
 struct Point {
@@ -53,9 +56,9 @@ mod tests {
     #[test]
     fn test_match_message_call() {
         let mut state = State {
-            quit: false,
-            position: Point { x: 0, y: 0 },
-            color: (0, 0, 0),
+            quit: true,
+            position: Point { x: 10, y: 15 },
+            color: (255, 0, 255),
             message: "hello world".to_string(),
         };
         state.process(Message::ChangeColor(255, 0, 255));
