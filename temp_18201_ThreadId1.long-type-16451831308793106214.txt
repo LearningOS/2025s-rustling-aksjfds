@@ -1,0 +1,1 @@
+Map<std::slice::Iter<'_, std::collections::HashMap<String, Progress>>, for<'a> fn(&'a std::collections::HashMap<String, Progress>, Progress) -> usize {count_iterator}>

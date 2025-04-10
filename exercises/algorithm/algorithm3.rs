@@ -3,17 +3,25 @@
 	This problem requires you to implement a sorting algorithm
 	you can use bubble sorting, insertion sorting, heap sorting, etc.
 */
-// I AM NOT DONE
 
-fn sort<T>(array: &mut [T]){
-	//TODO
+fn sort<T: std::cmp::Ord>(array: &mut [T]) {
+    for i in 1..array.len() {
+        for j in 1..=i {
+            match array[i - j + 1] < array[i - j] {
+                true => array.swap(i - j + 1, i - j),
+                false => break,
+            }
+        }
+    }
 }
+
 #[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
     fn test_sort_1() {
+        println!("{:#?}", 1);
         let mut vec = vec![37, 73, 57, 75, 91, 19, 46, 64];
         sort(&mut vec);
         assert_eq!(vec, vec![19, 37, 46, 57, 64, 73, 75, 91]);
